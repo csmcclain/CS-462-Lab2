@@ -1,0 +1,37 @@
+1. Did you accomplish step 5 with an event expression or a rule conditional statement? 
+What are the advantages and disadvantages of the method you used compared with the other?
+    I beleive I used a rule conditional statement because I had a conditional statement in 
+    my rule that evaluated weather or not the fire postlude was executed. I think that rule
+    conditional statements are more simple to understand but event expresssions can narrow
+    down the ammount of times that a rule is evaluated.
+
+2. Suppose you had multiple temperature sensors all sending temperatures to your pico. 
+What would be the advantages of creating a separate channel for each sensor? 
+    I think that separating out the temperature sensors into different channels would
+    allow for some sort of distinction between them. You could then identify a sensor by
+    its channel rather than including identifying information in the event itself.
+
+3. What was the output of the testing your ruleset before the find_high_temps rule was added?
+How many Directives were returned? How many rules do you think ran?
+    Before I added the find_high_temps rule I had 2 directives; the first directive was the initial
+    "reading" from the ruleset that emulates a wovyn sensor and the second directive was the
+    process_heartbeat rule being fired. I think that it ran 2 rules: The heartbeat rule and 
+    the process_heartbeet rule.
+
+4. What was the output of the test after the find_high_temps rule was added? How many directives 
+were returned? How many rules do you think ran?
+    More directives were output. I believe three directives were returned: One for the original
+    rule fireing, one for the process_heartbeat, and another for the find_high_temps. I think that
+    3 rules ran: the same two as before and the find_high_temps rule.
+
+5. See Diagram in submissions
+
+6. Would you say that your find_high_temps rule is an event intermediary? if so, what kind?
+    I wouls say yes it is. It acts as a gate keeper for the rules that follow it only allowing
+    specific temperatrues to pass through it. 
+
+7. How do your logs show that the find_high_Temps rule works? Pick out specific lines and explain them.
+    My logs show that the find_high_temps rule works by indicating that the action is fired. My action
+    checks to see if the given temperature is over the threshold and if it is then it fires the action.
+    This is shown in the logs with the line: fired that appears after output that is specific to the 
+    find_high_temps rule.
