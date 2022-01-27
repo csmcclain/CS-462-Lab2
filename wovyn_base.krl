@@ -1,11 +1,11 @@
 ruleset wovyn_base {
 
-    // meta {
-    //     use module twilio.api alias twilio
-    //         with
-    //             accountSid = meta:rulesetConfig{"accountSid"}
-    //             authToken = meta:rulesetConfig{"authToken"}
-    // }
+    meta {
+        use module twilio.api alias twilio
+            with
+                accountSid = meta:rulesetConfig{"accountSid"}
+                authToken = meta:rulesetConfig{"authToken"}
+    }
 
     // Define global variables.
     global {
@@ -61,17 +61,17 @@ ruleset wovyn_base {
         }
     }
 
-    // rule threshold_notification {
-    //     // Define when the rule is selected
-    //     select when wovyn threshold_violation
+    rule threshold_notification {
+        // Define when the rule is selected
+        select when wovyn threshold_violation
 
-    //     // Set variables that are needed (prelude)
-    //     pre {
-    //         message = "A reading of " + event:attrs{"temperature"} + " was read at " + event:attrs{"timestamp"}
-    //     }
+        // Set variables that are needed (prelude)
+        pre {
+            message = "A reading of " + event:attrs{"temperature"} + " was read at " + event:attrs{"timestamp"}
+        }
 
-    //     // No action is needed we will always evaluate the postlude
-    //     twilio:sendSMS(receiver_of_sms, sender_of_sms, message)
-    // }
+        // No action is needed we will always evaluate the postlude
+        twilio:sendSMS(receiver_of_sms, sender_of_sms, message)
+    }
 
 }
